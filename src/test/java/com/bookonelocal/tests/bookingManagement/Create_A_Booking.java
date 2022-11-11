@@ -41,8 +41,8 @@ public class Create_A_Booking extends BaseTest {
 		bookingPage.searchCustomer(input.get("searchOptionName"), input.get("firstName"), input.get("lastName"),
 				input.get("phoneNumber"), input.get("email"));
 		BookingConfirmationPop_up bookingPop_up = bookingPage.clickOnBookButton();
-		Assert.assertTrue(bookingPop_up.getBookingConfirmationPopupTitle().equalsIgnoreCase("booking completed"));
-		Assert.assertTrue(bookingPop_up.getThanksForBookingMessage().equalsIgnoreCase("thanks for the booking"));
+		Assert.assertTrue(bookingPop_up.getBookingConfirmationPopupTitle().equalsIgnoreCase("Booking Completed"));
+		Assert.assertTrue(bookingPop_up.getThanksForBookingMessage().equalsIgnoreCase("Thanks for the booking"));
 		String reservationId = bookingPop_up.clickOnGoToBookingList();
 		Assert.assertTrue(bookingManagementPage.verifyReservationId(reservationId));
 	}

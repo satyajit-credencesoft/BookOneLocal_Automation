@@ -2,20 +2,20 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-11-11T15:29:12 IST" name="Default suite" finished-at="2022-11-11T15:29:51 IST" duration-ms="39202">
+  <suite started-at="2022-11-11T17:35:53 IST" name="Default suite" finished-at="2022-11-11T17:36:41 IST" duration-ms="48365">
     <groups>
     </groups>
-    <test started-at="2022-11-11T15:29:12 IST" name="Default test" finished-at="2022-11-11T15:29:51 IST" duration-ms="39202">
+    <test started-at="2022-11-11T17:35:53 IST" name="Default test" finished-at="2022-11-11T17:36:41 IST" duration-ms="48365">
       <class name="com.bookonelocal.tests.bookingManagement.Create_A_Booking">
-        <test-method is-config="true" signature="initializeDriver()[pri:0, instance:com.bookonelocal.tests.bookingManagement.Create_A_Booking@3059cbc]" started-at="2022-11-11T15:29:12 IST" name="initializeDriver" finished-at="2022-11-11T15:29:15 IST" duration-ms="2322" status="PASS">
+        <test-method is-config="true" signature="initializeDriver()[pri:0, instance:com.bookonelocal.tests.bookingManagement.Create_A_Booking@3059cbc]" started-at="2022-11-11T17:35:53 IST" name="initializeDriver" finished-at="2022-11-11T17:35:56 IST" duration-ms="3090" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initializeDriver -->
-        <test-method signature="createSimpleBooking(java.util.HashMap)[pri:0, instance:com.bookonelocal.tests.bookingManagement.Create_A_Booking@3059cbc]" started-at="2022-11-11T15:29:15 IST" name="createSimpleBooking" data-provider="getData" finished-at="2022-11-11T15:29:51 IST" duration-ms="36609" status="PASS">
+        <test-method signature="createSimpleBooking(java.util.HashMap)[pri:0, instance:com.bookonelocal.tests.bookingManagement.Create_A_Booking@3059cbc]" started-at="2022-11-11T17:35:56 IST" name="createSimpleBooking" data-provider="getData" finished-at="2022-11-11T17:36:41 IST" duration-ms="45011" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[{lastName=nanda, numberOfPerson=1, roomTypeName=Single Room, planName=Single Room, numberOfRooms=3, sourceOfBooking=Walk in, searchOptionName=email, operatorName=satyajit, arrivalDate=11/11/2022, counterName=Counter 1, firstName=satyajit, phoneNumber=7326954153, roomNumbers=101,102,104, departureDate=12/11/2022, email=satyajitkumar852@gmail.com}]]>
+                <![CDATA[{lastName=Parida, numberOfPerson=1, roomTypeName=Single Room, planName=Single Room, numberOfRooms=1, sourceOfBooking=Walk in, searchOptionName=lastName, operatorName=satyajit, arrivalDate=11/11/2022, counterName=Counter 1, firstName=Ankita, phoneNumber=9348188257, roomNumbers=101, departureDate=12/11/2022, email=ankitaparida49@gmail.com}]]>
               </value>
             </param>
           </params>

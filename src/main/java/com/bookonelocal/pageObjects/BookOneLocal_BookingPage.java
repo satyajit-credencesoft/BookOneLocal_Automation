@@ -137,6 +137,24 @@ public class BookOneLocal_BookingPage extends AbstractComponents {
 	@FindBy(xpath = "//mat-card-title[.='Customer Information']")
 	WebElement customerrInformationText;
 
+	@FindBy(css = "p[class='text-warning']")
+	WebElement customerNotFound_WarningMessage;
+
+	@FindBy(xpath = "//a[@class='searchCustomer']")
+	WebElement addNewCustomerButton;
+
+	@FindBy(css = "input[placeholder='First Name']")
+	WebElement newCustomer_firstName;
+
+	@FindBy(css = "input[placeholder='Last Name']")
+	WebElement newCustomer_lastName;
+
+	@FindBy(css = "input[placeholder='Email']")
+	WebElement newCustomer_email;
+
+	@FindBy(css = "input[placeholder='Phone Number']")
+	WebElement newCustomer_phoneNumber;
+
 	public BookingConfirmationPop_up clickOnBookButton() throws InterruptedException {
 		scrollToElementView(bookButton);
 		bookButton.click();
@@ -154,29 +172,61 @@ public class BookOneLocal_BookingPage extends AbstractComponents {
 					.findFirst().orElse(null);
 			option.findElement(searchOptionCheckboxsBy).click();
 			searchCustomerWithSearchBar.sendKeys(firstName);
-			for (int i = 0; i < customerNames.size(); i++) {
+			Thread.sleep(3000);
+			if (customerNotFound_WarningMessage.isDisplayed() && customerNotFound_WarningMessage.getText().trim()
+					.equalsIgnoreCase("Customer Not Found! Please create customer")) {
+				// add new customer
+				addNewCustomerButton.click();
 				Thread.sleep(3000);
-				String name1 = customerNames.get(i).getText().substring(15).trim();
-				String[] name2 = name1.split(" ");
+				newCustomer_firstName.sendKeys(firstName);
+				newCustomer_lastName.sendKeys(lastName);
+				newCustomer_email.sendKeys(email);
+				newCustomer_phoneNumber.sendKeys(phoneNumber);
+				Thread.sleep(1000);
+			} else {
+				for (int i = 0; i < customerNames.size(); i++) {
+					Thread.sleep(3000);
+					String name1 = customerNames.get(i).getText().substring(15).trim();
+					String[] name2 = name1.split(" ");
 
-				if (Arrays.asList(name2).contains(firstName)) {
-					customerNames.get(i).click();
+					if (Arrays.asList(name2).contains(firstName)
+							&& name1.equalsIgnoreCase(firstName + " " + lastName)) {
+						customerNames.get(i).click();
+						break;
+					}
 				}
 			}
+
 		} else if (searchOptionName.equalsIgnoreCase("lastName")) {
 			WebElement option = customerSearchOptions.stream()
 					.filter(s -> s.findElement(searchOptionsNameBy).getText().trim().equalsIgnoreCase("Last Name"))
 					.findFirst().orElse(null);
 			option.findElement(searchOptionCheckboxsBy).click();
 			searchCustomerWithSearchBar.sendKeys(lastName);
-			for (int i = 0; i < customerNames.size(); i++) {
-				String name1 = customerNames.get(i).getText().substring(0, 14);
-				String[] name2 = name1.split(" ");
+			Thread.sleep(3000);
+			if (customerNotFound_WarningMessage.isDisplayed() && customerNotFound_WarningMessage.getText().trim()
+					.equalsIgnoreCase("Customer Not Found! Please create customer")) {
+				// add new customer
+				addNewCustomerButton.click();
+				Thread.sleep(3000);
+				newCustomer_firstName.sendKeys(firstName);
+				newCustomer_lastName.sendKeys(lastName);
+				newCustomer_email.sendKeys(email);
+				newCustomer_phoneNumber.sendKeys(phoneNumber);
+				Thread.sleep(1000);
+			} else {
+				for (int i = 0; i < customerNames.size(); i++) {
+					Thread.sleep(3000);
+					String name1 = customerNames.get(i).getText().substring(15).trim();
+					String[] name2 = name1.split(" ");
 
-				if (Arrays.asList(name2).contains(lastName)) {
-					customerNames.get(i).click();
+					if (Arrays.asList(name2).contains(lastName) && name1.equalsIgnoreCase(firstName + " " + lastName)) {
+						customerNames.get(i).click();
+						break;
+					}
 				}
 			}
+
 		} else if (searchOptionName.equalsIgnoreCase("phone")) {
 			WebElement option = customerSearchOptions.stream()
 					.filter(s -> s.findElement(searchOptionsNameBy).getText().trim().equalsIgnoreCase("Phone"))
@@ -184,6 +234,16 @@ public class BookOneLocal_BookingPage extends AbstractComponents {
 			option.findElement(searchOptionCheckboxsBy).click();
 			searchCustomerWithPhoneNumber.sendKeys(phoneNumber);
 			searchButton.click();
+			Thread.sleep(2000);
+			if (customerNotFound_WarningMessage.isDisplayed()
+					&& customerNotFound_WarningMessage.getText().trim().equalsIgnoreCase(" Customer Not Found! ")) {
+				Thread.sleep(1000);
+				newCustomer_firstName.sendKeys(firstName);
+				newCustomer_lastName.sendKeys(lastName);
+				newCustomer_email.sendKeys(email);
+				newCustomer_phoneNumber.sendKeys(phoneNumber);
+				Thread.sleep(1000);
+			}
 		} else if (searchOptionName.equalsIgnoreCase("email")) {
 			WebElement option = customerSearchOptions.stream()
 					.filter(s -> s.findElement(searchOptionsNameBy).getText().trim().equalsIgnoreCase("Email"))
@@ -191,6 +251,16 @@ public class BookOneLocal_BookingPage extends AbstractComponents {
 			option.findElement(searchOptionCheckboxsBy).click();
 			searchCustomerWithEmail.sendKeys(email);
 			searchButton.click();
+			Thread.sleep(2000);
+			if (customerNotFound_WarningMessage.isDisplayed()
+					&& customerNotFound_WarningMessage.getText().trim().equalsIgnoreCase(" Customer Not Found! ")) {
+				Thread.sleep(1000);
+				newCustomer_firstName.sendKeys(firstName);
+				newCustomer_lastName.sendKeys(lastName);
+				newCustomer_email.sendKeys(email);
+				newCustomer_phoneNumber.sendKeys(phoneNumber);
+				Thread.sleep(1000);
+			}
 		}
 	}
 
