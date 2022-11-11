@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+	<listeners>
+		<listener class-name="com.bookonelocal.testComponents.Listeners" />
+	</listeners>
+	<test thread-count="5" name="Test">
+		<classes>
+			<class name="com.bookonelocal.tests.bookingManagement.LoginToBookOneLocal" />
+			<class name="com.bookonelocal.tests.bookingManagement.ClickOnTheHeaderButtonsOfBookingManagementPage" />
+			<class name="com.bookonelocal.tests.bookingManagement.Create_A_Booking" />
+			<class name="com.bookonelocal.tests.bookingManagement.ClickOnTheBookingManagementModule" />
+			<class name="com.bookonelocal.tests.bookingManagement.Click_On_The_NewBookingButton" />
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

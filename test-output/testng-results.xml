@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2022-11-11T15:29:12 IST" name="Default suite" finished-at="2022-11-11T15:29:51 IST" duration-ms="39202">
+    <groups>
+    </groups>
+    <test started-at="2022-11-11T15:29:12 IST" name="Default test" finished-at="2022-11-11T15:29:51 IST" duration-ms="39202">
+      <class name="com.bookonelocal.tests.bookingManagement.Create_A_Booking">
+        <test-method is-config="true" signature="initializeDriver()[pri:0, instance:com.bookonelocal.tests.bookingManagement.Create_A_Booking@3059cbc]" started-at="2022-11-11T15:29:12 IST" name="initializeDriver" finished-at="2022-11-11T15:29:15 IST" duration-ms="2322" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initializeDriver -->
+        <test-method signature="createSimpleBooking(java.util.HashMap)[pri:0, instance:com.bookonelocal.tests.bookingManagement.Create_A_Booking@3059cbc]" started-at="2022-11-11T15:29:15 IST" name="createSimpleBooking" data-provider="getData" finished-at="2022-11-11T15:29:51 IST" duration-ms="36609" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{lastName=nanda, numberOfPerson=1, roomTypeName=Single Room, planName=Single Room, numberOfRooms=3, sourceOfBooking=Walk in, searchOptionName=email, operatorName=satyajit, arrivalDate=11/11/2022, counterName=Counter 1, firstName=satyajit, phoneNumber=7326954153, roomNumbers=101,102,104, departureDate=12/11/2022, email=satyajitkumar852@gmail.com}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createSimpleBooking -->
+      </class> <!-- com.bookonelocal.tests.bookingManagement.Create_A_Booking -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

@@ -1,0 +1,19 @@
+[
+    {
+        "roomTypeName": "Single Room",
+        "arrivalDate": "11/11/2022",
+        "departureDate": "12/11/2022",
+        "planName": "Single Room",
+        "numberOfRooms": "3",
+        "numberOfPerson": "1",
+        "sourceOfBooking": "Walk in",
+        "counterName": "Counter 1",
+        "operatorName": "satyajit",
+        "roomNumbers":"101,102,104" ,
+        "searchOptionName": "email",
+        "firstName": "satyajit",
+        "lastName": "nanda",
+        "phoneNumber": "7326954153",
+        "email": "satyajitkumar852@gmail.com"
+    }
+]
