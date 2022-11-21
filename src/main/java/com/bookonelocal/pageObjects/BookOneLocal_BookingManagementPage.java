@@ -1,19 +1,18 @@
 package com.bookonelocal.pageObjects;
 
-import com.bookonelocal.abstractComponents.AbstractComponents;
-import com.bookonelocal.popup.BookingConfirmationPop_up;
+import com.bookonelocal.popup.BookingManagement_ActionMethods;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
 
 import java.util.List;
 
-public class BookOneLocal_BookingManagementPage extends AbstractComponents {
+public class BookOneLocal_BookingManagementPage extends BookingManagement_ActionMethods {
 	WebDriver driver;
+	String reservationId;
 
 	public BookOneLocal_BookingManagementPage(WebDriver driver) {
 		super(driver);
@@ -90,6 +89,7 @@ public class BookOneLocal_BookingManagementPage extends AbstractComponents {
 
 	public Boolean verifyReservationId(String reservationId) {
 		Boolean match = reservationIds.stream().anyMatch(s -> s.getText().trim().equalsIgnoreCase(reservationId));
+		this.reservationId = reservationId;
 		return match;
 	}
 
@@ -134,4 +134,142 @@ public class BookOneLocal_BookingManagementPage extends AbstractComponents {
 
 		return match;
 	}
+
+	public void clickOnView() {
+		WebElement reservation = allBookings.stream()
+				.filter(s -> s.findElement(reservationIDsBy).getText().trim().equalsIgnoreCase(reservationId))
+				.findFirst().orElse(null);
+
+		reservation.findElement(actionButtonsBy).click();
+		getViewOption().click();
+	}
+
+	public void clickOnAddOnService() {
+		WebElement reservation = allBookings.stream()
+				.filter(s -> s.findElement(reservationIDsBy).getText().trim().equalsIgnoreCase(reservationId))
+				.findFirst().orElse(null);
+
+		reservation.findElement(actionButtonsBy).click();
+		getAddOnServiceOption().click();
+		;
+	}
+
+	public void clickOnConvertIntoGroupBooking() {
+		WebElement reservation = allBookings.stream()
+				.filter(s -> s.findElement(reservationIDsBy).getText().trim().equalsIgnoreCase(reservationId))
+				.findFirst().orElse(null);
+
+		reservation.findElement(actionButtonsBy).click();
+		getConvertInToGroupBooking().click();
+		;
+	}
+
+	public void clickOnAddRemoveGuest() {
+		WebElement reservation = allBookings.stream()
+				.filter(s -> s.findElement(reservationIDsBy).getText().trim().equalsIgnoreCase(reservationId))
+				.findFirst().orElse(null);
+
+		reservation.findElement(actionButtonsBy).click();
+		getAdd_RemoveGuestOption().click();
+	}
+
+	public void clickOnAdditionalGuestInformation() {
+		WebElement reservation = allBookings.stream()
+				.filter(s -> s.findElement(reservationIDsBy).getText().trim().equalsIgnoreCase(reservationId))
+				.findFirst().orElse(null);
+
+		reservation.findElement(actionButtonsBy).click();
+		getAdditionalGuestInformation().click();
+	}
+
+	public void clickOnCancel() {
+		WebElement reservation = allBookings.stream()
+				.filter(s -> s.findElement(reservationIDsBy).getText().trim().equalsIgnoreCase(reservationId))
+				.findFirst().orElse(null);
+
+		reservation.findElement(actionButtonsBy).click();
+		getCancel_Option().click();
+	}
+
+	public void clickOnCopy() {
+		WebElement reservation = allBookings.stream()
+				.filter(s -> s.findElement(reservationIDsBy).getText().trim().equalsIgnoreCase(reservationId))
+				.findFirst().orElse(null);
+
+		reservation.findElement(actionButtonsBy).click();
+		getCopy_Option().click();
+	}
+
+	public void clickOnDateChange() {
+		WebElement reservation = allBookings.stream()
+				.filter(s -> s.findElement(reservationIDsBy).getText().trim().equalsIgnoreCase(reservationId))
+				.findFirst().orElse(null);
+
+		reservation.findElement(actionButtonsBy).click();
+		getDateChange_Option().click();
+	}
+
+	public void clickOnDetails() {
+		WebElement reservation = allBookings.stream()
+				.filter(s -> s.findElement(reservationIDsBy).getText().trim().equalsIgnoreCase(reservationId))
+				.findFirst().orElse(null);
+
+		reservation.findElement(actionButtonsBy).click();
+		getDetails_Option().click();
+	}
+
+	public void clickOnRoomCategoryChange() {
+		WebElement reservation = allBookings.stream()
+				.filter(s -> s.findElement(reservationIDsBy).getText().trim().equalsIgnoreCase(reservationId))
+				.findFirst().orElse(null);
+
+		reservation.findElement(actionButtonsBy).click();
+		getRoomCategoryChangeOption().click();
+	}
+
+	public void clickOnRoomAllocation() {
+		WebElement reservation = allBookings.stream()
+				.filter(s -> s.findElement(reservationIDsBy).getText().trim().equalsIgnoreCase(reservationId))
+				.findFirst().orElse(null);
+
+		reservation.findElement(actionButtonsBy).click();
+		getRoomAllocationOption().click();
+	}
+
+	public void clickOnSendPaymentLink() {
+		WebElement reservation = allBookings.stream()
+				.filter(s -> s.findElement(reservationIDsBy).getText().trim().equalsIgnoreCase(reservationId))
+				.findFirst().orElse(null);
+
+		reservation.findElement(actionButtonsBy).click();
+		getSendPaymentLinkOption().click();
+	}
+
+	public void clickOnSendConfirmationEmail() {
+		WebElement reservation = allBookings.stream()
+				.filter(s -> s.findElement(reservationIDsBy).getText().trim().equalsIgnoreCase(reservationId))
+				.findFirst().orElse(null);
+
+		reservation.findElement(actionButtonsBy).click();
+		getSendConfirmationEmail_Option().click();
+	}
+
+	public void clickOnVoidBooking() {
+		WebElement reservation = allBookings.stream()
+				.filter(s -> s.findElement(reservationIDsBy).getText().trim().equalsIgnoreCase(reservationId))
+				.findFirst().orElse(null);
+
+		reservation.findElement(actionButtonsBy).click();
+		getVoidBookingOption().click();
+	}
+
+	public void clickOnNoShow() {
+		WebElement reservation = allBookings.stream()
+				.filter(s -> s.findElement(reservationIDsBy).getText().trim().equalsIgnoreCase(reservationId))
+				.findFirst().orElse(null);
+
+		reservation.findElement(actionButtonsBy).click();
+		getNoShow_Option().click();
+	}
+
 }
