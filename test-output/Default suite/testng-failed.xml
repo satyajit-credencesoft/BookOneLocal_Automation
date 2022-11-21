@@ -3,12 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.bookonelocal.tests.bookingManagement.Create_A_Booking">
+      <class name="com.bookonelocal.tests.bookingManagement.CreateBookingAndVerifyTheBooking">
         <methods>
-          <include name="createSimpleBooking" invocation-numbers="0"/>
+          <include name="createBookingAndVerifyTheBooking" invocation-numbers="0"/>
           <include name="initializeDriver"/>
         </methods>
-      </class> <!-- com.bookonelocal.tests.bookingManagement.Create_A_Booking -->
+      </class> <!-- com.bookonelocal.tests.bookingManagement.CreateBookingAndVerifyTheBooking -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

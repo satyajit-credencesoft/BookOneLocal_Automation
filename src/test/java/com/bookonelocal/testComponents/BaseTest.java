@@ -124,7 +124,7 @@ public class BaseTest {
 		return password;
 	}
 
-	@AfterMethod(alwaysRun = true)
+//	@AfterMethod(alwaysRun = true)
 	public void closeDriver() throws AWTException {
 		driver.close();
 	}

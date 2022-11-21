@@ -1,19 +1,15 @@
 package com.bookonelocal.pageObjects;
 
-import java.lang.invoke.CallSite;
-import java.util.Arrays;
-import java.util.List;
-
-import javax.swing.text.html.CSS;
-
+import com.bookonelocal.abstractComponents.AbstractComponents;
+import com.bookonelocal.popup.BookingConfirmationPop_up;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import com.bookonelocal.abstractComponents.AbstractComponents;
-import com.bookonelocal.popup.BookingConfirmationPop_up;
+import java.util.Arrays;
+import java.util.List;
 
 public class BookOneLocal_BookingPage extends AbstractComponents {
 	WebDriver driver;
@@ -140,6 +136,8 @@ public class BookOneLocal_BookingPage extends AbstractComponents {
 	@FindBy(css = "p[class='text-warning']")
 	WebElement customerNotFound_WarningMessage;
 
+	By customerNotFound_WarningMessageBy = By.cssSelector("p[class='text-warning']");
+
 	@FindBy(xpath = "//a[@class='searchCustomer']")
 	WebElement addNewCustomerButton;
 
@@ -158,6 +156,7 @@ public class BookOneLocal_BookingPage extends AbstractComponents {
 	public BookingConfirmationPop_up clickOnBookButton() throws InterruptedException {
 		scrollToElementView(bookButton);
 		bookButton.click();
+		Thread.sleep(2000);
 
 		BookingConfirmationPop_up bookingPopup = new BookingConfirmationPop_up(driver);
 		return bookingPopup;
@@ -173,8 +172,14 @@ public class BookOneLocal_BookingPage extends AbstractComponents {
 			option.findElement(searchOptionCheckboxsBy).click();
 			searchCustomerWithSearchBar.sendKeys(firstName);
 			Thread.sleep(3000);
-			if (customerNotFound_WarningMessage.isDisplayed() && customerNotFound_WarningMessage.getText().trim()
-					.equalsIgnoreCase("Customer Not Found! Please create customer")) {
+			Boolean display = false;
+			Boolean warningMessageTextIsEqual = false;
+			if (driver.getPageSource().contains("Customer Not Found! Please create customer")) {
+				display = true;
+				warningMessageTextIsEqual = customerNotFound_WarningMessage.getText().trim()
+						.equalsIgnoreCase("Customer Not Found! Please create customer");
+			}
+			if (display && warningMessageTextIsEqual) {
 				// add new customer
 				addNewCustomerButton.click();
 				Thread.sleep(3000);
@@ -204,8 +209,14 @@ public class BookOneLocal_BookingPage extends AbstractComponents {
 			option.findElement(searchOptionCheckboxsBy).click();
 			searchCustomerWithSearchBar.sendKeys(lastName);
 			Thread.sleep(3000);
-			if (customerNotFound_WarningMessage.isDisplayed() && customerNotFound_WarningMessage.getText().trim()
-					.equalsIgnoreCase("Customer Not Found! Please create customer")) {
+			Boolean display = false;
+			Boolean warningMessageTextIsEqual = false;
+			if (driver.getPageSource().contains("Customer Not Found! Please create customer")) {
+				display = true;
+				warningMessageTextIsEqual = customerNotFound_WarningMessage.getText().trim()
+						.equalsIgnoreCase("Customer Not Found! Please create customer");
+			}
+			if (display && warningMessageTextIsEqual) {
 				// add new customer
 				addNewCustomerButton.click();
 				Thread.sleep(3000);
@@ -235,8 +246,14 @@ public class BookOneLocal_BookingPage extends AbstractComponents {
 			searchCustomerWithPhoneNumber.sendKeys(phoneNumber);
 			searchButton.click();
 			Thread.sleep(2000);
-			if (customerNotFound_WarningMessage.isDisplayed()
-					&& customerNotFound_WarningMessage.getText().trim().equalsIgnoreCase(" Customer Not Found! ")) {
+			Boolean display = false;
+			Boolean warningMessageTextIsEqual = false;
+			if (driver.getPageSource().contains("Customer Not Found!")) {
+				display = true;
+				warningMessageTextIsEqual = customerNotFound_WarningMessage.getText().trim()
+						.equalsIgnoreCase("Customer Not Found!");
+			}
+			if (display && warningMessageTextIsEqual) {
 				Thread.sleep(1000);
 				newCustomer_firstName.sendKeys(firstName);
 				newCustomer_lastName.sendKeys(lastName);
@@ -252,8 +269,14 @@ public class BookOneLocal_BookingPage extends AbstractComponents {
 			searchCustomerWithEmail.sendKeys(email);
 			searchButton.click();
 			Thread.sleep(2000);
-			if (customerNotFound_WarningMessage.isDisplayed()
-					&& customerNotFound_WarningMessage.getText().trim().equalsIgnoreCase(" Customer Not Found! ")) {
+			Boolean display = false;
+			Boolean warningMessageTextIsEqual = false;
+			if (driver.getPageSource().contains("Customer Not Found!")) {
+				display = true;
+				warningMessageTextIsEqual = customerNotFound_WarningMessage.getText().trim()
+						.equalsIgnoreCase("Customer Not Found!");
+			}
+			if (display && warningMessageTextIsEqual) {
 				Thread.sleep(1000);
 				newCustomer_firstName.sendKeys(firstName);
 				newCustomer_lastName.sendKeys(lastName);
