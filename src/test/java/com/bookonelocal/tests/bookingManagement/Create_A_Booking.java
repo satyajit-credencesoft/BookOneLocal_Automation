@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class Create_A_Booking extends BaseTest {
-
+//Testing Purpose
 	@Test(dataProvider = "getData")
 	public void createSimpleBooking(HashMap<String, String> input)
 			throws IOException, AWTException, InterruptedException {
