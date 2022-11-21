@@ -10,6 +10,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.bookonelocal.pageObjects.BookOneLocal_AdminDashBoard;
+import com.bookonelocal.pageObjects.BookOneLocal_BookingDetailsPage;
 import com.bookonelocal.pageObjects.BookOneLocal_BookingManagementPage;
 import com.bookonelocal.pageObjects.BookOneLocal_BookingPage;
 import com.bookonelocal.pageObjects.BookOneLocal_LoginPage;
@@ -48,6 +49,8 @@ public class CreateBookingAndVerifyTheBooking extends BaseTest {
 				reservationId));
 		Assert.assertTrue(bookingManagementPage.verifyTheBookingDate(input.get("arrivalDate"),
 				input.get("departureDate"), reservationId));
+		BookOneLocal_BookingDetailsPage bookingDetailsPage = bookingManagementPage.clickOnView();
+		Assert.assertTrue(bookingDetailsPage.getTheBookingStatusText().equalsIgnoreCase("booking status"));
 	}
 
 	@DataProvider

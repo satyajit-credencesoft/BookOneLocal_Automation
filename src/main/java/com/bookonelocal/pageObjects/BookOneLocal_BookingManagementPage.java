@@ -135,13 +135,18 @@ public class BookOneLocal_BookingManagementPage extends BookingManagement_Action
 		return match;
 	}
 
-	public void clickOnView() {
+	public BookOneLocal_BookingDetailsPage clickOnView() throws InterruptedException {
 		WebElement reservation = allBookings.stream()
 				.filter(s -> s.findElement(reservationIDsBy).getText().trim().equalsIgnoreCase(reservationId))
 				.findFirst().orElse(null);
 
 		reservation.findElement(actionButtonsBy).click();
 		getViewOption().click();
+
+		Thread.sleep(2000);
+
+		BookOneLocal_BookingDetailsPage bookingDetailsPage = new BookOneLocal_BookingDetailsPage(driver);
+		return bookingDetailsPage;
 	}
 
 	public void clickOnAddOnService() {
