@@ -46,6 +46,34 @@ public class BookOneLocal_BookingManagementPage extends BookingManagement_Action
 
 	By actionOptionNamesBy = By.xpath("/span");
 
+	@FindBy(xpath = "(//button[@name='fontStyle'])[1]")
+	WebElement recentBookingButton;
+
+	@FindBy(xpath = "(//button[@name='fontStyle'])[2]")
+	WebElement todaysArrivalButton;
+
+	@FindBy(xpath = "(//button[@name='fontStyle'])[3]")
+	WebElement InHouseButton;
+
+	@FindBy(xpath = "(//button[@name='fontStyle'])[4]")
+	WebElement todaysDepartureButton;
+
+	public void clickOnTheRecentBookingButton() {
+		recentBookingButton.click();
+	}
+
+	public void clickOnTheTodaysArrivalButton() {
+		todaysArrivalButton.click();
+	}
+
+	public void clickOnTheInHouseButton() {
+		InHouseButton.click();
+	}
+
+	public void clickOnTheTodaysDepartureButton() {
+		todaysDepartureButton.click();
+	}
+
 	public List<WebElement> getReservationIds() {
 		return reservationIds;
 	}

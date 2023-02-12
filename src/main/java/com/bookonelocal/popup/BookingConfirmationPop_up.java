@@ -23,7 +23,7 @@ public class BookingConfirmationPop_up extends AbstractComponents {
 	@FindBy(xpath = "(//div[contains(@class,'body')])[2]//b")
 	WebElement thanksForBookingMessage;
 
-	@FindBy(xpath = "(//span[@class='mat-button-wrapper'])[16]")
+	@FindBy(xpath = "mat-dialog-actions[class*='mat-dialog-actions'] button")
 	WebElement goToBookingListButton;
 
 	@FindBy(css = "mat-dialog-content[class='mat-dialog-content']")
@@ -51,8 +51,12 @@ public class BookingConfirmationPop_up extends AbstractComponents {
 	public String clickOnGoToBookingList() {
 		String id = getReservationId();
 
-		waitForWebEelementToAppear(goToBookingListButton);
-		goToBookingListButton.click();
+		try {
+			waitForWebEelementToAppear(goToBookingListButton);
+			goToBookingListButton.click();
+		} catch (Exception e) {
+			goToBookingListButton.click();
+		}
 
 		return id;
 	}

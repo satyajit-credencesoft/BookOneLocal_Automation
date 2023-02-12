@@ -3,6 +3,7 @@ package com.bookonelocal.pageObjects;
 import com.bookonelocal.abstractComponents.AbstractComponents;
 import com.bookonelocal.popup.BookingConfirmationPop_up;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -152,6 +153,137 @@ public class BookOneLocal_BookingPage extends AbstractComponents {
 
 	@FindBy(css = "input[placeholder='Phone Number']")
 	WebElement newCustomer_phoneNumber;
+
+	@FindBy(xpath = "(//mat-icon[.='mode_edit'])[1]")
+	WebElement roomPriceEditOption;
+
+	@FindBy(xpath = "(//mat-icon[.='mode_edit'])[2]")
+	WebElement extraPaxChargeEditOption;
+
+	@FindBy(xpath = "(//mat-icon[.='mode_edit'])[3]")
+	WebElement extraChildChargeOption;
+
+	@FindBy(xpath = "(//mat-icon[.='mode_edit'])[4]")
+	WebElement discountOption;
+
+	@FindBy(xpath = "(//mat-icon[.='mode_edit'])[5]")
+	WebElement netAmountEditOption;
+
+	@FindBy(xpath = "(//mat-icon[.='mode_edit'])[6]")
+	WebElement totalPayableAmountEditOption;
+
+	@FindBy(css = "input[class*='roomprice']")
+	WebElement roomPriceEditField;
+
+	@FindBy(xpath = "//mat-icon[.='check']")
+	WebElement checkMarkIcon;
+
+	@FindBy(xpath = "//mat-icon[.='close']")
+	WebElement closeMarkIcon;
+
+	@FindBy(css = "input[class*='mat-input-element mat-form-field-autofill-control ng-tns-c120-37 ng-pristine ng-valid cdk-text-field-autofill-monitored ng-touched']")
+	WebElement extraPaxChargeEditField;
+
+	@FindBy(css = "input[class*='mat-input-element mat-form-field-autofill-control ng-tns-c120-40 ng-untouched ng-pristine ng-valid cdk-text-field-autofill-monitored']")
+	WebElement extraChildChargeEditField;
+
+	@FindBy(css = "input[class*='mat-input-element mat-form-field-autofill-control ng-tns-c120-45 ng-touched ng-pristine ng-valid cdk-text-field-autofill-monitored']")
+	WebElement editDiscountField;
+
+	@FindBy(css = "input[class*='mat-input-element mat-form-field-autofill-control ng-tns-c120-47 ng-pristine ng-valid cdk-text-field-autofill-monitored ng-touched']")
+	WebElement netAmountEditField;
+
+	@FindBy(xpath = "(//mat-icon[.=' check_box_outline_blank'])[1]")
+	WebElement CGST_Tax;
+
+	@FindBy(xpath = "(//mat-icon[.=' check_box_outline_blank'])[2]")
+	WebElement SGST_Tax;
+
+	@FindBy(xpath = "(//mat-icon[.=' check_box_outline_blank'])[3]")
+	WebElement IGST_Tax;
+
+	@FindBy(xpath = "//textarea[@placeholder='Booking Notes']")
+	WebElement bookingNotes;
+
+	@FindBy(xpath = "//mat-select[@placeholder='Mode of Payment']")
+	WebElement modeOfPaymentDropDown;
+
+	@FindBy(xpath = "//mat-option[@role='option']/span")
+	List<WebElement> modeOfPayments;
+
+	@FindBy(xpath = "//input[@placeholder='Advance Amount']")
+	WebElement takeAdvancedAmountField;
+
+	public void takeAdvancedAmount(int amount) {
+		takeAdvancedAmountField.clear();
+		takeAdvancedAmountField.sendKeys(Integer.toString(amount));
+	}
+
+	public void selectModeOfPayment(String paymentMode) throws InterruptedException {
+		modeOfPaymentDropDown.click();
+		WebElement modeOfPayment = modeOfPayments.stream().filter(s -> s.getText().trim().equalsIgnoreCase(paymentMode))
+				.findFirst().orElse(null);
+		try {
+			modeOfPayment.click();
+		} catch (Exception e) {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("document.querySelector('div[role='listbox']').scrollBy(0,1000)");
+			Thread.sleep(1000);
+			modeOfPayment.click();
+		}
+	}
+
+	public void takeBookingNotes(String notes) {
+		bookingNotes.sendKeys(notes);
+	}
+
+	public void check_IGST() {
+		IGST_Tax.click();
+	}
+
+	public void check_SGST() {
+		SGST_Tax.click();
+	}
+
+	public void check_CGST() {
+		CGST_Tax.click();
+	}
+
+	public void editTheRoomPrice(int amount) {
+		String amounts = Integer.toString(amount);
+		roomPriceEditOption.click();
+		roomPriceEditField.clear();
+		roomPriceEditField.sendKeys(amounts);
+		checkMarkIcon.click();
+	}
+
+	public void editTheExtraPaxCharge(int amount) {
+		String amounts = Integer.toString(amount);
+		extraPaxChargeEditOption.click();
+		extraPaxChargeEditField.sendKeys(amounts);
+		checkMarkIcon.click();
+	}
+
+	public void editTheExtraChildCharge(int amount) {
+		String amounts = Integer.toString(amount);
+		extraChildChargeOption.click();
+		extraChildChargeEditField.sendKeys(amounts);
+		checkMarkIcon.click();
+	}
+
+	public void giveDiscount(int discount) {
+		String discountAmount = Integer.toString(discount);
+		discountOption.click();
+		editDiscountField.sendKeys(discountAmount);
+		checkMarkIcon.click();
+	}
+
+	public void editNetAmount(int amount) {
+		String amounts = Integer.toString(amount);
+		netAmountEditOption.click();
+		netAmountEditField.sendKeys(amounts);
+		checkMarkIcon.click();
+	}
 
 	public BookingConfirmationPop_up clickOnBookButton() throws InterruptedException {
 		scrollToElementView(bookButton);
@@ -399,10 +531,7 @@ public class BookOneLocal_BookingPage extends AbstractComponents {
 		String month = dateDetails[1].trim();
 		String year = dateDetails[2].trim();
 
-		if (currentMonth$Year.getText().trim().equalsIgnoreCase(getMonth().get(month) + " " + year)
-				&& getMonth().get(month).equalsIgnoreCase(currentMonth.getText().trim())) {
-//			WebElement Date = allDates.stream().filter(s -> s.getText().trim().equalsIgnoreCase(date)).findFirst()
-//					.orElse(null);
+		if (currentMonth$Year.getText().trim().equalsIgnoreCase(getMonth().get(month) + " " + year)) {
 			WebElement Date = null;
 			for (int i = 0; i < allDates.size(); i++) {
 				String day = allDates.get(i).getText();
@@ -443,8 +572,7 @@ public class BookOneLocal_BookingPage extends AbstractComponents {
 		String month = dateDetails[1].trim();
 		String year = dateDetails[2].trim();
 		// clickOnMenuIcon();
-		if (currentMonth$Year.getText().trim().equalsIgnoreCase(getMonth().get(month) + " " + year)
-				&& getMonth().get(month).equalsIgnoreCase(currentMonth.getText().trim())) {
+		if (currentMonth$Year.getText().trim().equalsIgnoreCase(getMonth().get(month) + " " + year)) {
 			WebElement Date = null;
 			for (int i = 0; i < allDates.size(); i++) {
 				String day = allDates.get(i).getText();

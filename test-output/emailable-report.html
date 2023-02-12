@@ -9,16 +9,24 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">Default suite</th></tr>
-<tr><td><a href="#t0">Default test</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">43,054</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Default test</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">76,534</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">com.bookonelocal.tests.bookingManagement.CreateBookingAndVerifyTheBooking</td><td><a href="#m0">createBookingAndVerifyTheBooking</a></td><td rowspan="1">1669016793101</td><td rowspan="1">38215</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">com.bookonelocal.tests.bookingManagement.ClickOnTodaysArrivalButton</td><td><a href="#m0">createBooking</a></td><td rowspan="1">1669979087234</td><td rowspan="1">73837</td></tr></tbody>
 </table>
-<h2>Default test</h2><h3 id="m0">com.bookonelocal.tests.bookingManagement.CreateBookingAndVerifyTheBooking#createBookingAndVerifyTheBooking</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>{lastName=nanda, numberOfPerson=1, roomTypeName=Single Room, planName=Single Room, numberOfRooms=1, sourceOfBooking=Walk in, searchOptionName=phone, operatorName=satyajit, externalBookingNumber=123456789, arrivalDate=21/11/2022, counterName=Counter 1, firstName=satyajit, phoneNumber=7326954153, numberOfChildren=1, roomNumbers=103, departureDate=22/11/2022, email=satyajitkumar852@gmail.com}</td></tr><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:97)
-	at org.testng.Assert.failNotEquals(Assert.java:969)
-	at org.testng.Assert.assertTrue(Assert.java:43)
-	at org.testng.Assert.assertTrue(Assert.java:53)
-	at com.bookonelocal.tests.bookingManagement.CreateBookingAndVerifyTheBooking.createBookingAndVerifyTheBooking(CreateBookingAndVerifyTheBooking.java:43)
+<h2>Default test</h2><h3 id="m0">com.bookonelocal.tests.bookingManagement.ClickOnTodaysArrivalButton#createBooking</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>{lastName=Nanda, numberOfPersons=1, roomTypeName=single room, planName=single room, numberOfRooms=2, sourceOfBooking=walk in, counter=counter 1, searchOptionName=phone, operator=satyajit, arrivalDate=2/12/2022, firstName=satyajit, phoneNumber=7326954153, roomNumbers=101,105, departureDate=3/12/2022, email=satyajitkumar852@gmail.com}</td></tr><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.NoSuchElementException: Unable to find element with locator By.xpath: //td[@class=&apos;mat-calendar-body-label&apos;]
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: &apos;4.1.2&apos;, revision: &apos;9a5a329c5a&apos;
+System info: host: &apos;DESKTOP-HTHUA0V&apos;, ip: &apos;192.168.29.88&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:382)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:374)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:70)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:39)
+	at jdk.proxy2/jdk.proxy2.$Proxy17.getText(Unknown Source)
+	at com.bookonelocal.pageObjects.BookOneLocal_BookingPage.selectDepartureDate(BookOneLocal_BookingPage.java:576)
+	at com.bookonelocal.tests.bookingManagement.ClickOnTodaysArrivalButton.createBooking(ClickOnTodaysArrivalButton.java:31)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

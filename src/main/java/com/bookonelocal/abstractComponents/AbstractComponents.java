@@ -72,15 +72,15 @@ public class AbstractComponents {
 
 	public HashMap<String, String> getMonth() {
 		HashMap<String, String> month = new HashMap<String, String>();
-		month.put("01", "JAN");
-		month.put("02", "FEB");
-		month.put("03", "MAR");
-		month.put("04", "APR");
-		month.put("05", "MAY");
-		month.put("06", "JUN");
-		month.put("07", "JUL");
-		month.put("08", "AUG");
-		month.put("09", "SEP");
+		month.put("1", "JAN");
+		month.put("2", "FEB");
+		month.put("3", "MAR");
+		month.put("4", "APR");
+		month.put("5", "MAY");
+		month.put("6", "JUN");
+		month.put("7", "JUL");
+		month.put("8", "AUG");
+		month.put("9", "SEP");
 		month.put("10", "OCT");
 		month.put("11", "NOV");
 		month.put("12", "DEC");
